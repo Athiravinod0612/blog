@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <% article.reverse().forEach(function(art){ %>           
+    <div>
+     <h2><%= art.head %></h2>
+     <h4><%= art.topic %></h4>
+     <p><%= art.content %></p>
+     <p><%= art.status %></p>
+     <a href="/remove/<%= art._id%>" onclick="return confirm('do you want to delete')">Delete</a>
+     <a href="/reject/<%= art._id%>" onclick="return confirm('do you want to Approved')">reject</a>
+     <a href="/Approved/<%= art._id%>" onclick="return confirm('do you want to Approved')">Approved</a>
+    </div>        
+ <% }); %>
+</body>
+</html>

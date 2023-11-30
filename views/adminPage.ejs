@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+    <style>
+      #user,
+      #add,
+      #topicList,
+      #manager {
+        display: none;
+      }
+      #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #6a6680;
+  color: white;
+}
+#customers{
+  margin: 50px;
+  text-align: center;
+}/*form*/
+html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 40px;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px #6a6680; 
+      }
+      
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+    
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:#6a6680;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0 #6a6680;
+      color: #6a6680;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: #6a6680;
+      }
+      
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #6a6680;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #9995ad;
+      }#add{
+            margin: 50px 20px;
+      }
+      .testbox{
+        width: 50%;
+        margin-top: 5% ;
+        margin-left: 20%;
+      }
+      h3{
+        padding: 10px;
+        text-align: center;
+      }
+      a{
+        text-decoration: none;
+       
+      }
+      h1{
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="AddTopic()">Add topic ad</button>
+    <button onclick="user()">user</button>
+    <button onclick="topics()">topics</button>
+    <button ><a href="/articles">All Articles</a></button>
+   
+    <button><a href="/art">Home</a></button>
+    <button><a href="/logout">logout</a></button>
+    
+  <%=message %>
+    <div id="main">
+
+    </div>
+    
+
+
+
+<table id="customers">
+  
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="add">
+      
+    
+ 
+
+    <div class="testbox">
+      
+      <form action="/addtopic" method="post" enctype="application/x-www-form-urlencoded">
+        <h3>Add New topic And mannager</h3> 
+    <div> Add New Topic</div>
+    <input type="text" placeholder="New topic" name="newTopic" id="newTopic" class="newTopic" >
+    <div>Topic manager Name</div>
+    <input type="text" placeholder="manager" name="managerName" id="managerName" class="managerName" >
+    <div> email id</div>
+    <input type="text" placeholder="Email Adress" name="managerEmail" id="managerEmail" class="managerEmail" >
+    <div> password</div>
+    <input type="password" placeholder="managerPassword" name="managerPassword" id="managerPassword" class="btn-block" style="text-align: left;">
+    <button type="submit">Add</button>
+       
+        
+      </form>
+    </div>
+    
+  </div>
+
+  
+    <div id="topicList">
+
+ 
+      
+      
+      <table id="customers">
+          <tr>
+            <th>sl.no</th>
+            <th>topics</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>status</th>
+            <th>privilege</th>
+            <th>Delete</th>
+            <th>block</th>
+            <th>unblock</th>
+          </tr>
+          <%  i=1 %>
+          <% items.reverse().forEach(function(topic){ %>          
+            <tr>
+                
+                <td> <%= i++  %></td>
+                <td><%= topic.topics %></td>             
+                          
+                <td><%= topic.name %></td>             
+                <td><%= topic.email %></td>  
+                <td><%= topic.status %></td>
+                <td><%= topic.privilege %></td>            
+                <td><a href="/deletemanager/<%= topic._id%>" onclick="return confirm('do you want to delete')">delete</a></td> 
+                <td><a href="/blockManager/<%= topic._id%>" onclick="return confirm('do you want to block this user')">block</a></td>
+                <td><a href="/unblockmanager/<%= topic._id%>" onclick="return confirm('do you want to unblock this user')">unblock</a></td> 
+                  
+        
+            </tr>            
+            <% }); %>
+          </tr>
+       </table>
+    
+    </div>
+
+
+
+    <div id="user">
+      <table id="customers">
+        <tr>
+          <th>sl.no</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>status</th>
+          
+          <th>Delete</th>
+          <th>block</th>
+          <th>unblock</th>
+        </tr>
+        <%  i=1 %>
+        <% data.reverse().forEach(function(person){ %>           
+          <tr>
+              
+              <td> <%= i++  %></td>          
+              <td><%= person.name %></td>             
+              <td><%= person.email %></td>  
+              <td><%= person.status %></td>
+                         
+              <td><a href="/delete/<%= person._id%>" onclick="return confirm('do you want to delete')">delete</a></td> 
+              <td><a href="/block/<%= person._id%>" onclick="return confirm('do you want to block this user')">block</a></td>
+              <td><a href="/unblock/<%= person._id%>" onclick="return confirm('do you want to unblock this user')">unblock</a></td>    
+      
+          </tr>            
+          <% }); %>
+        </tr>
+     </table>
+     </div>
+    </div>
+
+    <script>
+     
+      AddTopic = () => {
+
+        document.getElementById("main").innerHTML =
+          document.getElementById("add").innerHTML;
+      };
+      user = () => {
+        document.getElementById("main").innerHTML =
+          document.getElementById("user").innerHTML;
+      };
+      topics= () =>{
+        document.getElementById("main").innerHTML =
+          document.getElementById("topicList").innerHTML;
+      }
+      manager= () =>{
+        document.getElementById("main").innerHTML =
+          document.getElementById("manager").innerHTML;
+      }
+    </script>
+  </body>
+</html>

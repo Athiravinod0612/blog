@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager</title>
+  </head>
+  <style>
+    .container {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+        rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+      padding: 20px;
+      margin: 20px 50px;
+    }
+    .btn-block {
+      margin-top: 10px;
+      text-align: center;
+    }
+    button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #6a6680;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #9995ad;
+    }
+    /* #reject,#Approved{
+        display: none;
+      } */
+    .btn {
+      position: fixed;
+      margin-left: 250px;
+    }
+  </style>
+  <body>
+    <div class="btn">
+      <button><a href="#Approved">Approved</a></button>
+      <button><a href="#reject">Rejected</a></button>
+      <button><a href="#main"> user send</a></button>
+      <button><a href="/logout">logout</a></button>
+      <%= mess%>
+    </div>
+
+    <div id="main">
+      <h1>user send</h1>
+
+      <% articlesend.reverse().forEach(function(art){ %>
+      <div class="container">
+        <div><h4><%= art.head %></h4></div>
+        <div><h5>topic:<%= art.topic %></h5></div>
+        <p><%= art.content %></p>
+
+        <!-- <a
+          href="/removeart/<%= art._id%>"
+          onclick="return confirm('do you want to delete')"
+          >Delete</a
+        > -->
+        <a
+          href="/rejectart/<%= art._id%>"
+          onclick="return confirm('do you want to Reject this article')"
+          >reject</a
+        >
+        <a
+          href="/Approvedart/<%= art._id%>"
+          onclick="return confirm('do you want to Approved')"
+          >Approved</a
+        >
+      </div>
+      <% }); %>
+    </div>
+
+    <div id="reject">
+      <h1>Reject</h1>
+      <% articleReject.reverse().forEach(function(art){ %>
+      <div class="container">
+        <div><h4><%= art.head %></h4></div>
+        <div><h5>topic:<%= art.topic %></h5></div>
+        <p><%= art.content %></p>
+
+        <!-- <a
+          href="/removeart/<%= art._id%>"
+          onclick="return confirm('do you want to delete')"
+          >Delete</a
+        > -->
+        <!-- <a
+          href="/rejectart/<%= art._id%>"
+          onclick="return confirm('do you want to Reject this article')"
+          >reject</a
+        > -->
+        <a
+          href="/Approvedart/<%= art._id%>"
+          onclick="return confirm('do you want to Approved')"
+          >Approved</a
+        >
+      </div>
+      <% }); %>
+    </div>
+    <div id="Approved">
+      <h1>Approved</h1>
+      <% articleApproved.reverse().forEach(function(art){ %>
+      <div class="container">
+        <div><h4><%= art.head %></h4></div>
+        <div><h5>topic:<%= art.topic %></h5></div>
+        <p><%= art.content %></p>
+
+        <!-- <a
+         href="/removeart/<%= art._id%>"
+          onclick="return confirm('do you want to delete')"
+          >Delete</a
+        > -->
+        <a
+          href="/rejectart/<%= art._id%>"
+          onclick="return confirm('do you want to Reject this article')"
+          >reject</a
+        >
+        <!-- <a
+          href="/Approvedart/<%= art._id%>"
+          onclick="return confirm('do you want to Approved')"
+          >Approved</a
+        > -->
+      </div>
+      <% }); %>
+    </div>
+    <script>
+      // Aproved=()=>{
+      //   document.getElementById('main').innerHTML= document.getElementById('Approved').innerHTML
+      // }
+      // Reject=()=>{
+      //   document.getElementById('main').innerHTML= document.getElementById('reject').innerHTML
+      // }
+      // user=()=>{
+      //   document.getElementById('main').innerHTML= document.getElementById('user').innerHTML
+      // }
+    </script>
+  </body>
+</html>

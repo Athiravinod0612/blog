@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        padding: 20px;
+        margin: 5% 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <% article.reverse().forEach(function(art){ %>
+    <div class="container">
+      <div><h4><%= art.head %></h4></div>
+      <div><h5>topic:<%= art.topic %></h5></div>
+      <p><%= art.content %></p>
+      <p><%= art.status %></p>
+      <a
+        href="/adminRemove/<%= art._id%>"
+        onclick="return confirm('do you want to delete')"
+        >Delete</a
+      >
+      <!-- <a
+        href="/reject/<%= art._id%>"
+        onclick="return confirm('do you want to Approved')"
+        >reject</a
+      >
+      <a
+        href="/Approved/<%= art._id%>"
+        onclick="return confirm('do you want to Approved')"
+        >Approved</a
+      >-->
+    </div>
+    <% }); %>
+  </body>
+</html>

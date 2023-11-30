@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://127.0.0.1:8080/admin -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./admin_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+    <style>
+      #user,
+      #add,
+      #topicList,
+      #manager {
+        display: none;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1141.0" data-gr-ext-installed="">
+    <button onclick="AddTopic()">Add topic ad</button>
+    <button onclick="user()">user</button>
+    <button onclick="topics()">topics</button>
+    <button onclick="manager()">Manager</button>
+    <button><a href="http://127.0.0.1:8080/art">article</a></button>
+    <a href="http://127.0.0.1:8080/logout">logout</a>
+    
+
+    <div id="main">
+      <table>
+        <tbody><tr>
+          <th>sl.no</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>status</th>
+          <th>privilege</th>
+          <th>Delete</th>
+          <th>block</th>
+          <th>unblock</th>
+        </tr>
+        
+                   
+          <tr>
+              
+              <td> 1</td>          
+              <td>nihara</td>             
+              <td>nihara@gmail.com</td>  
+              <td>1</td>
+              <td>user</td>            
+              <td><a href="http://127.0.0.1:8080/delete/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to delete&#39;)">delete</a></td> 
+              <td><a href="http://127.0.0.1:8080/block/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to block this user&#39;)">block</a></td>
+              <td><a href="http://127.0.0.1:8080/unblock/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to unblock this user&#39;)">unblock</a></td>    
+      
+          </tr>            
+                     
+          <tr>
+              
+              <td> 2</td>          
+              <td>Athira Pvinod</td>             
+              <td>athirap0612@gmail.com</td>  
+              <td>1</td>
+              <td>admin</td>            
+              <td><a href="http://127.0.0.1:8080/delete/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to delete&#39;)">delete</a></td> 
+              <td><a href="http://127.0.0.1:8080/block/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to block this user&#39;)">block</a></td>
+              <td><a href="http://127.0.0.1:8080/unblock/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to unblock this user&#39;)">unblock</a></td>    
+      
+          </tr>            
+          
+        
+     </tbody></table>
+     </div>
+    
+
+<div class="manager" id="manager">
+
+</div> 
+
+
+    <div id="add">
+       <form action="http://127.0.0.1:8080/addtopic" method="post" enctype="application/x-www-form-urlencoded">
+    <div> Add New Topic</div>
+    <input type="text" placeholder="New topic" name="newTopic" id="newTopic" class="newTopic">
+    <div>Topic manager Name</div>
+    <input type="text" placeholder="manager" name="managerName" id="managerName" class="managerName">
+    <div> email id</div>
+    <input type="text" placeholder="Email Adress" name="managerEmail" id="managerEmail" class="managerEmail">
+    <div> password</div>
+    <input type="password" placeholder="managerPassword" name="managerPassword" id="managerPassword" class="managerPassword">
+    <button type="submit">Add</button>
+    </form>
+
+ 
+    
+  </div>
+
+
+    <div id="topicList">
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      
+        <!-- <table >
+          <tr>
+            <th>sl.no</th>
+            <th>topics</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>status</th>
+            <th>privilege</th>
+            <th>Delete</th>
+            <th>block</th>
+            <th>unblock</th>
+          </tr>
+          
+                    
+            <tr>
+                
+                <td> 1</td>
+                <td>master</td>             
+                          
+                <td>jishnu</td>             
+                <td>jishnu@gmail.com</td>  
+                <td>1</td>
+                <td>manager</td>            
+                <td><a href="/deletemanager/65657495c3833b2fe4aa6802" onclick="return confirm('do you want to delete')">delete</a></td> 
+                <td><a href="/blockManager/65657495c3833b2fe4aa6802" onclick="return confirm('do you want to block this user')">block</a></td>
+                <td><a href="/unblockmanager/65657495c3833b2fe4aa6802" onclick="return confirm('do you want to unblock this user')">unblock</a></td>    
+        
+            </tr>            
+                      
+            <tr>
+                
+                <td> 2</td>
+                <td>dance</td>             
+                          
+                <td>arya</td>             
+                <td>arya@gmail.com</td>  
+                <td>1</td>
+                <td>manager</td>            
+                <td><a href="/deletemanager/65657477c3833b2fe4aa67fb" onclick="return confirm('do you want to delete')">delete</a></td> 
+                <td><a href="/blockManager/65657477c3833b2fe4aa67fb" onclick="return confirm('do you want to block this user')">block</a></td>
+                <td><a href="/unblockmanager/65657477c3833b2fe4aa67fb" onclick="return confirm('do you want to unblock this user')">unblock</a></td>    
+        
+            </tr>            
+                      
+            <tr>
+                
+                <td> 3</td>
+                <td>songs</td>             
+                          
+                <td>anagha</td>             
+                <td>anagha@gmail.com</td>  
+                <td>1</td>
+                <td>manager</td>            
+                <td><a href="/deletemanager/65657446c3833b2fe4aa67f4" onclick="return confirm('do you want to delete')">delete</a></td> 
+                <td><a href="/blockManager/65657446c3833b2fe4aa67f4" onclick="return confirm('do you want to block this user')">block</a></td>
+                <td><a href="/unblockmanager/65657446c3833b2fe4aa67f4" onclick="return confirm('do you want to unblock this user')">unblock</a></td>    
+        
+            </tr>            
+            
+          </tr>
+       </table> -->
+    
+    </div>
+
+    <div id="user">
+      <table>
+        <tbody><tr>
+          <th>sl.no</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>status</th>
+          <th>privilege</th>
+          <th>Delete</th>
+          <th>block</th>
+          <th>unblock</th>
+        </tr>
+        
+                   
+          <tr>
+              
+              <td> 1</td>          
+              <td>nihara</td>             
+              <td>nihara@gmail.com</td>  
+              <td>1</td>
+              <td>user</td>            
+              <td><a href="http://127.0.0.1:8080/delete/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to delete&#39;)">delete</a></td> 
+              <td><a href="http://127.0.0.1:8080/block/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to block this user&#39;)">block</a></td>
+              <td><a href="http://127.0.0.1:8080/unblock/656574f4c3833b2fe4aa6809" onclick="return confirm(&#39;do you want to unblock this user&#39;)">unblock</a></td>    
+      
+          </tr>            
+                     
+          <tr>
+              
+              <td> 2</td>          
+              <td>Athira Pvinod</td>             
+              <td>athirap0612@gmail.com</td>  
+              <td>1</td>
+              <td>admin</td>            
+              <td><a href="http://127.0.0.1:8080/delete/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to delete&#39;)">delete</a></td> 
+              <td><a href="http://127.0.0.1:8080/block/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to block this user&#39;)">block</a></td>
+              <td><a href="http://127.0.0.1:8080/unblock/656493c8eb0b991bf079a3e9" onclick="return confirm(&#39;do you want to unblock this user&#39;)">unblock</a></td>    
+      
+          </tr>            
+          
+        
+     </tbody></table>
+     </div>
+    
+
+    <script>
+      AddTopic = () => {
+
+        document.getElementById("main").innerHTML =
+          document.getElementById("add").innerHTML;
+      };
+      user = () => {
+        document.getElementById("main").innerHTML =
+          document.getElementById("user").innerHTML;
+      };
+      topics= () =>{
+        document.getElementById("main").innerHTML =
+          document.getElementById("topicList").innerHTML;
+      }
+      manager= () =>{
+        document.getElementById("main").innerHTML =
+          document.getElementById("manager").innerHTML;
+      }
+    </script>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

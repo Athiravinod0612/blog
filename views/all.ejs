@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        width: 50%;
+        padding: 20px;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 0 8px #6a6680;
+        margin-left: 20%;
+      }
+
+      input,
+      select,
+      textarea {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input {
+        width: calc(100% - 10px);
+        padding: 5px;
+      }
+
+      textarea {
+        width: calc(100% - 12px);
+        padding: 5px;
+      }
+      .item:hover p,
+      .item:hover i,
+      .question:hover p,
+      .question label:hover,
+      input:hover::placeholder {
+        color: #6a6680;
+      }
+      .item input:hover,
+      .item select:hover,
+      .item textarea:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 3px 0 #6a6680;
+        color: #6a6680;
+      }
+      .item {
+        position: relative;
+        margin: 10px 0;
+      }
+      .item span {
+        color: #6a6680;
+      }
+
+      .btn-block {
+        margin-top: 10px;
+        text-align: center;
+      }
+      button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #6a6680;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #9995ad;
+      }
+      #add {
+        margin: 50px 20px;
+      }
+      .testbox {
+        width: 50%;
+        margin-top: 5%;
+        margin-left: 20%;
+      }
+      h3 {
+        padding: 10px;
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+      }
+      h1 {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Add your article</h3>
+
+
+    <div class="add" id="add">
+      <form
+        action="/add"
+        method="post"
+        enctype="application/x-www-form-urlencoded"
+      >
+        <div>
+          <input
+            type="text"
+            placeholder="head"
+            id="head"
+            class="head"
+            name="head"
+          />
+        </div>
+
+        <div>
+          <select placeholder="topic" id="head" class="head" name="topic">
+            <% items.reverse().forEach(function(topic){ %>
+            
+          <option value="<%= topic._id%>"  ><%= topic.topics%></option> 
+            <% }); %>
+          </select>
+        </div>
+        <div>
+          <textarea
+            rows="10"
+            cols="10"
+            placeholder="content"
+            name="content"
+            class="content"
+            id="content"
+          ></textarea>
+        </div>
+        <div>
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
